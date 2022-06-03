@@ -126,6 +126,7 @@ GEE_token.env
 .mypy_cache/
 .dmypy.json
 dmypy.json
+.private_key.json
 
 # Pyre type checker
 .pyre/

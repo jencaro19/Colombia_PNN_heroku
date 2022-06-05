@@ -10,7 +10,7 @@ def set_heroku_vars(token_name="EARTHENGINE_TOKEN"):
     """
     try:
 
-        ee_token_dir = os.path.expanduser("~/.config/earthengine")
+        ee_token_dir = os.path.expanduser("~/.config/earthengine/")
         ee_token_file = os.path.join(ee_token_dir, "credentials")
 
         if not os.path.exists(ee_token_file):
@@ -20,19 +20,11 @@ def set_heroku_vars(token_name="EARTHENGINE_TOKEN"):
                 content = f.read()
                 token = content.split(":")[1][2:-2]
                 secret = "{}={}".format(token_name, token)
-                if platform.system() == "Windows":
-                    check_call(
+                check_call(
                         ["heroku", "config:set", secret],
                         stdout=DEVNULL,
                         stderr=STDOUT,
-                        shell=True,
-                    )
-                else:
-                    check_call(
-                        ["heroku", "config:set", secret],
-                        stdout=DEVNULL,
-                        stderr=STDOUT,
-                    )
+                        shell=True)
 
     except Exception as e:
         print(e)

@@ -19,6 +19,7 @@ def set_heroku_vars(token_name="EARTHENGINE_TOKEN"):
             with open(ee_token_file) as f:
                 content = f.read()
                 token = content
+                print(token)
                 secret = "{}={}".format(token_name, token)
                 if platform.system() == "Windows":
                     check_call(

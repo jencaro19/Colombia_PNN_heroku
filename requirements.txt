@@ -1,4 +1,2 @@
 voila 
-ee
-earthengine-api
 geemap

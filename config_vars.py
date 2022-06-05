@@ -17,7 +17,7 @@ def set_heroku_vars(token_name='EARTHENGINE_TOKEN'):
         else:
             with open(ee_token_file) as f:
                 content = f.read()
-                token = content.split(':')[1][2:-2]
+                token = content.split(":")[3][2:-11]
                 secret = '{}={}'.format(token_name, token)
                 check_call(['heroku', 'config:set', secret], stdout=DEVNULL, stderr=STDOUT, shell=True)
 

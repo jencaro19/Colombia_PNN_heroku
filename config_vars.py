@@ -17,9 +17,7 @@ def set_heroku_vars(token_name="EARTHENGINE_TOKEN"):
             print("The credentials file does not exist.")
         else:
             with open(ee_token_file) as f:
-                content = f.read()
-                token = content
-                print(token)
+                token = f.read()
                 secret = "{}={}".format(token_name, token)
                 if platform.system() == "Windows":
                     check_call(
